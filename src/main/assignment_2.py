@@ -1,6 +1,7 @@
 import numpy as np
 
-# This is a modification of the code you provided on WebCourses
+
+# This is a modification of the code provided on WebCourses
 def nevilles_method(x_points, y_points, x):
     # must specify the matrix size (this is based on how many columns/rows you want)
     matrix = np.zeros((len(x_points), len(y_points)))
@@ -35,6 +36,7 @@ def nevilles_method(x_points, y_points, x):
     return matrix[num_of_points-1][num_of_points-1]
 
 
+# This is a modification of the code provided on WebCourses
 def divided_difference_table(x_points, y_points):
     # set up the matrix
     size: int = len(x_points)
@@ -63,6 +65,7 @@ def divided_difference_table(x_points, y_points):
     return matrix
 
 
+# This is a modification of the code provided on WebCourses
 def get_approximate_result(matrix, x_points, value):
     # p0 is always y0 and we use a reoccuring x to avoid having to recalculate x
     reoccuring_x_span = 1
@@ -86,6 +89,7 @@ def get_approximate_result(matrix, x_points, value):
     return reoccuring_px_result
 
 
+# This is a modification of the code provided on WebCourses
 def apply_div_dif(matrix: np.array):
     size = len(matrix)
     for i in range(2, size):
@@ -113,6 +117,7 @@ def apply_div_dif(matrix: np.array):
     return matrix
 
 
+# This is a modification of the code provided on WebCourses
 def hermite_interpolation(x_points, y_points, slopes):
 
     # matrix size changes because of "doubling" up info for hermite
@@ -137,6 +142,8 @@ def hermite_interpolation(x_points, y_points, slopes):
     #print(filled_matrix)
     return filled_matrix
 
+
+# This is code implemented from the pseudocode in the textbook
 def cubic_spline(x_points, y_points):
     x = x_points
     a = y_points
@@ -206,13 +213,10 @@ def cubic_spline(x_points, y_points):
     print(x_vector)
 
 
-
-
-
 if __name__ == "__main__":
     np.set_printoptions(precision=7, suppress=True, linewidth=100)
 
-    ### PART ONE
+    # PART ONE
     # point setup
     x_points = [3.6, 3.8, 3.9]
     y_points = [1.675, 1.436, 1.318]
@@ -223,7 +227,7 @@ if __name__ == "__main__":
 
     print("")
 
-
+    # PART TWO
     # point setup
     x_points = [7.2, 7.4, 7.5, 7.6]
     y_points = [23.5492, 25.3913, 26.8224, 27.4589]
@@ -231,14 +235,21 @@ if __name__ == "__main__":
 
     answer = [divided_table[1][1], divided_table[2][2], divided_table[3][3]]
     print(answer)
+    #####
+
+    print("")
+
+    # PART THREE
     # find approximation
     approximating_x = 7.3
     final_approximation = get_approximate_result(divided_table, x_points, approximating_x)
-    print("")
+
     print(final_approximation)
-
+    #####
 
     print("")
+
+    # PART FOUR
     # point setup
     x_points = [3.6, 3.8, 3.9]
     y_points = [1.675, 1.436, 1.318]
@@ -247,11 +258,15 @@ if __name__ == "__main__":
     final_matrix = hermite_interpolation(x_points, y_points, slopes)
 
     print(final_matrix)
+    #####
+
     print("")
 
+    # PART FIVE
     x_points = [2, 5, 8, 10]
     y_points = [3, 5, 7, 9]
     cubic_spline(x_points, y_points)
+    #####
 
     print("")
 
