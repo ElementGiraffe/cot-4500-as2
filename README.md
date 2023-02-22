@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 ## How to run
-In order to run the program, make sure you have the required dependencies, then navigate to just inside the cot-4500-intro folder, and run the following in the terminal:
+In order to run the program, make sure you have the required dependencies, then navigate to just inside the cot-4500-as2 folder, and run the following in the terminal:
 ```
 python src\main\assignment_2.py
 ```
